@@ -26,6 +26,9 @@ export class ApiController {
         const type = req.headers.get("x-api-key")
         const data = await Deno.readAll(req.body)
 
+        await Deno.writeFile("newimage.png", data)
+        console.log(data.length)
+
         req.respond({status: 200, body: "no"})
     }
 
