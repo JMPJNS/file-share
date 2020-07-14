@@ -1,8 +1,10 @@
 import { serve } from "https://deno.land/std@0.57.0/http/server.ts"
 import {ApiController} from "./apiController.ts"
+import {configFile} from "./types.ts"
 
-const ac = new ApiController()
+const config: configFile = JSON.parse(await Deno.readTextFile("../config.json"))
 
+const ac = new ApiController(config)
 const s = serve({ port: 3000 })
 console.log("http://localhost:3000/")
 

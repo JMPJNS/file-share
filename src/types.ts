@@ -1,0 +1,1 @@
+export type configFile = {baseurl: string, path: string}
